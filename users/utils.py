@@ -16,7 +16,7 @@ def send_password_reset_email(user, template_name):
     uid = urlsafe_base64_encode(force_bytes(user.pk))
 
     # Utilisation d'une URL dynamique pour l'environnement de production front
-    reset_url = f"http://127.0.0.1:8000/reset-password/{uid}/{token}/"
+    reset_url = f"http://127.0.0.1:8000/api/reset-password/{uid}/{token}/"
 
     message = render_to_string(template_name, {
         'user': user,
